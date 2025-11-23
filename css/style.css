@@ -16,20 +16,31 @@ body {
 }
 
 /* ----------------------------------------------------
-    NAVEGACIÓ
+    NAVEGACIÓ - SOLUCIÓ RESPONSIVE
 ---------------------------------------------------- */
 .top-nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: center; /* Centrem els botons de navegació */
-    gap: 15px;
-    backdrop-filter: blur(5px);
+    padding: 15px 10px; /* Padding ajustat */
     background: rgba(255, 255, 255, 0.85); /* Fondo blanc semitransparent */
+    backdrop-filter: blur(5px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra suau */
     z-index: 1000;
+    
+    /* Centrem el div contenidor (nav-left) */
+    display: flex; 
+    justify-content: center;
+}
+
+.top-nav .nav-left {
+    /* CONJUNT CLAU: Fa que els botons es posin en línia i s'emboliquin */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espaiat entre botons per a escriptori */
+    max-width: 1000px;
 }
 
 .nav-btn {
@@ -44,6 +55,9 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    /* Propietat afegida per a millor flexibilitat */
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .nav-btn:hover {
@@ -58,7 +72,7 @@ body {
 .hero {
     height: 100vh;
     /* NOTA: Aquesta URL s'ha d'ajustar a la vostra imatge. */
-    background: url('../img/portada.jpg') center/cover no-repeat; 
+    background: url('../img/vostra_foto.jpg') center/cover no-repeat; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -340,6 +354,27 @@ body {
     RESPONSIVE
 ---------------------------------------------------- */
 @media (max-width: 768px) {
+    /* Ajustes específicos para la navegación en móvil */
+    .top-nav {
+        /* Eliminem el padding superior/inferior per fer-la més compacta */
+        padding: 10px 10px; 
+    }
+    
+    .top-nav .nav-left {
+        gap: 8px; /* Reduïm l'espaiat */
+        padding: 0 5px; /* Petit padding per no tocar les vores */
+    }
+    
+    .nav-btn {
+        /* Fem els botons més petits i la font més petita */
+        padding: 6px 8px;
+        font-size: 0.8rem;
+        /* Permetem que creixin/es redueixin una mica */
+        flex-grow: 1; 
+        flex-basis: auto; 
+        min-width: 23%; /* 4 botons amb espaiat de 8px caben en 100% */
+    }
+    /* Resto de estilos responsive */
     .main-title {
         font-size: 3.5rem;
     }
@@ -358,16 +393,6 @@ body {
     .info p,
     .ubicacio p {
         font-size: 1rem;
-    }
-    .top-nav {
-        flex-wrap: wrap; 
-        justify-content: center;
-        padding: 10px;
-        gap: 8px;
-    }
-    .nav-btn {
-        padding: 8px 15px;
-        font-size: 0.85rem;
     }
     .formulari fieldset {
         padding: 20px 15px;
