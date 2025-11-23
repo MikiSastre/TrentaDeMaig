@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Núria & Pol - 30/05/2026</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAV SUPERIOR -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button class="nav-btn" onclick="scrollToSection('info')">Informació</button>
+            <button class="nav-btn" onclick="scrollToSection('ubicacio')">Ubicació</button>
+            <button class="nav-btn" onclick="scrollToSection('registre')">Confirmació</button>
+        </div>
+    </header>
+
+    <!-- PORTADA -->
+    <section class="hero">
+        <h1 class="main-title">Núria & Pol</h1>
+        <h2 class="sub-title">30 • 05 • 2026</h2>
+        <button class="leer-mas" onclick="scrollToSection('info')">Saber més</button>
+    </section>
+
+    <!-- INFORMACIÓ -->
+    <section id="info" class="info">
+        <h2>Ens encantaria que vinguéssiu 💛</h2>
+        <p><strong>Data:</strong> 30 de maig de 2026</p>
+        <p><strong>Hora:</strong> 17:00 h</p>
+        <p><strong>Codi vestimenta:</strong> Elegant però còmode</p>
+        <p><strong>Ubicació:</strong> Casa Rural / Masia / Espai (substituir)</p>
+        <a class="maps-btn" href="https://maps.google.com" target="_blank">Obrir a Google Maps</a>
+        <p>Si us plau, ompliu el formulari de sota per confirmar assistència.</p>
+    </section>
+
+    <!-- UBICACIÓ -->>
+
+    <!-- FORMULARI -->
+    <section id="registre" class="registre">
+    <h2 class="titol-formulari">Confirmació d'assistència</h2>
+
+    <form id="formulariBoda" class="formulari"
+        action="https://script.google.com/macros/s/AKfycbyqJbA7vJgjj-pR9DMLl_uE0UrDgv36vUNaBfJ5PB4QJxuQgXzkz61e91gt3uluNavU/exec"
+        method="POST"
+        target="hidden_iframe">
+
+        <!-- Secció assistència -->
+        <fieldset class="grup" id="fs-assistencia">
+        <legend>Assistència</legend>
+        <label for="assistencia">Confirmeu la vostra assistència?</label>
+        <select name="assistencia" id="assistencia" required>
+            <option value="">Selecciona una opció</option>
+            <option>Si</option>
+            <option>No</option>
+        </select>
+        </fieldset>
+
+        <!-- Dades principals -->
+        <fieldset class="grup" id="fs-dades">
+        <legend>Dades personals</legend>
+
+        <label for="nom">Nom i cognoms *</label>
+        <input id="nom" name="nom" type="text" placeholder="Escriu el teu nom complet" required>
+
+        <label for="plus1">Nom convidat +1</label>
+        <input id="plus1" name="plus1" type="text" placeholder="Nom del teu acompanyant (si n'hi ha)">
+        </fieldset>
+
+        <!-- Al·lèrgies -->
+        <fieldset class="grup" id="fs-allergies">
+        <legend>Al·lèrgies o intoleràncies</legend>
+
+        <label for="allergies">Al·lèrgies *</label>
+        <input id="allergies" name="allergies" type="text" placeholder="Indica les al·lèrgies i a qui afecten" required>
+
+        <label for="comAllergies">Comentaris addicionals</label>
+        <textarea id="comAllergies" name="comAllergies" placeholder="Detalls o aclariments addicionals"></textarea>
+        </fieldset>
+
+        <!-- Música -->
+        <fieldset class="grup" id="fs-musica">
+        <legend>Música</legend>
+        <label for="musica">Cançons que us agradaria escoltar</label>
+        <input id="musica" name="musica" type="text" placeholder="Digues alguna cançó per a la festa!">
+        </fieldset>
+
+        <!-- Missatge -->
+        <fieldset class="grup" id="fs-missatge">
+        <legend>Missatge per als nuvis ❤</legend>
+        <label for="missatge">Missatge</label>
+        <textarea id="missatge" name="missatge" placeholder="Deixa’ns un missatge especial"></textarea>
+        </fieldset>
+
+        <!-- Transport -->
+        <fieldset class="grup" id="fs-transport">
+        <legend>Transport</legend>
+        <label for="transport">Com hi arribareu?</label>
+        <select id="transport" name="transport">
+            <option value="">Selecciona una opció</option>
+            <option>Taxi</option>
+            <option>Vehicle propi</option>
+            <option>Encara no ho sabem</option>
+        </select>
+        </fieldset>
+
+        <button type="submit" class="boto-enviar">Enviar confirmació</button>
+    </form>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
