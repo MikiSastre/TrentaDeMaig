@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Crear un element per mostrar el missatge de confirmació
     const confirmationMessage = document.createElement('div');
-    confirmationMessage.style.cssText = 'position: fixed; top: 20px; right: 20px; background-color: #4A6B4A; color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 2000; transition: opacity 0.5s; opacity: 0;';
+    // CORRECCIÓ CLAU: left: auto i max-width: 90vw per a mòbils
+    confirmationMessage.style.cssText = 'position: fixed; top: 20px; right: 20px; left: auto; max-width: 90vw; text-align: center; background-color: #4A6B4A; color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 2000; transition: opacity 0.5s; opacity: 0;';
     // No li posem text encara, es definirà dinàmicament
     document.body.appendChild(confirmationMessage);
 
