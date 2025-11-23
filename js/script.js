@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fieldsets que s'han d'amagar quan l'usuari diu NO
   const fieldsetsToHide = [
-    "fs-dades",
+    "fs-plus1",
     "fs-allergies",
     "fs-musica",
     "fs-transport"

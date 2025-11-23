@@ -1,211 +1,398 @@
 /* ----------------------------------------------------
-   RESET I BASE
+    RESET Y BASE
 ---------------------------------------------------- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Georgia", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Font principal inspirada en la imatge */
+    font-family: 'Playfair Display', serif; 
 }
 
 body {
-  background: #fff;
-  color: #333;
+    background: #F8F8F8; /* Un fondo ligeramente más claro */
+    color: #5C6F5C; /* Color de texto base, un verd-gris suau */
+    line-height: 1.6;
 }
 
 /* ----------------------------------------------------
-   NAVEGACIÓ
+    NAVEGACIÓ
 ---------------------------------------------------- */
 .top-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 12px 20px;
-  display: flex;
-  gap: 10px;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center; /* Centrem els botons de navegació */
+    gap: 15px;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.85); /* Fondo blanc semitransparent */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra suau */
+    z-index: 1000;
 }
 
 .nav-btn {
-  padding: 8px 15px;
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
+    padding: 10px 20px;
+    background: transparent; /* Fondo transparent */
+    color: #5C6F5C; /* Text verd-gris */
+    border: 1px solid #C8D6C8; /* Vora més suau */
+    border-radius: 25px; /* Botons més arrodonits */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .nav-btn:hover {
-  background: #555;
+    background: #E8F0E8; /* Fondo suau en passar el ratolí */
+    border-color: #5C6F5C;
+    color: #3A4A3A;
 }
 
 /* ----------------------------------------------------
-   HERO
+    HERO (PORTADA) - CONTRAST CORREGIT
 ---------------------------------------------------- */
 .hero {
-  height: 100vh;
-  background: url('../img/portada.jpg') center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    /* NOTA: Aquesta URL s'ha d'ajustar a la vostra imatge. */
+    background: url('../img/portada.jpg') center/cover no-repeat; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff; /* CANVI CLAU: Text blanc */
+    padding-top: 80px; 
+    position: relative; 
+    overflow: hidden;
+}
+
+/* CAPA DE SUPERPOSICIÓ (OVERLAY) per millorar el contrast */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Color fosc semitransparent (negre al 35%) */
+    background-color: rgba(0, 0, 0, 0.35); 
+    z-index: 1; /* Just a sobre de la imatge de fons */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Assegura que el contingut estigui per sobre de la superposició */
+    max-width: 90%;
+    /* Ombra de text subtil per destacar */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); 
 }
 
 .main-title {
-  font-size: 3.5rem;
+    font-family: 'Great Vibes', cursive; 
+    font-size: 5rem; 
+    color: #DCE6D9; /* Color molt clar, gairebé blanc */
+    margin-bottom: 0.5rem;
+    line-height: 1;
 }
 
 .sub-title {
-  font-size: 1.8rem;
-  margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #f0f0f0; /* Color gris clar */
+    margin-top: 10px;
+    margin-bottom: 40px;
+    letter-spacing: 1.5px;
 }
 
+.hero p { 
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff; /* Text blanc */
+    margin: 15px auto 40px auto;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+
 .leer-mas {
-  padding: 12px 25px;
-  background: #ffffffcc;
-  border: none;
-  cursor: pointer;
-  border-radius: 25px;
-  transition: 0.3s;
+    padding: 12px 30px;
+    background: #7A8D7A; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px; 
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .leer-mas:hover {
-  background: #fff;
+    background: #5C6F5C; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ----------------------------------------------------
-   SECCIONS GENERALS
+    SECCIONS GENERALS (INFORMACIÓ, UBICACIÓ, REGISTRE)
 ---------------------------------------------------- */
 .info,
+.ubicacio,
 .registre {
-  padding: 60px 25px;
-  text-align: center;
+    padding: 80px 25px; 
+    text-align: center;
+    max-width: 900px; 
+    margin: 0 auto 40px auto; /* Centrar i espaiat */
+    background: #FFFFFF; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    border-radius: 10px; 
 }
 
-.info p {
-  margin: 12px 0;
-  font-size: 1.1rem;
+.info h2,
+.ubicacio h2,
+.registre h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #4A6B4A;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px; 
+}
+
+.info h2::after,
+.ubicacio h2::after,
+.registre h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 2px;
+    background-color: #C8D6C8; 
+}
+
+
+.info p,
+.ubicacio p {
+    font-size: 1.15rem;
+    color: #6D7E6D;
+    margin: 15px 0;
+}
+
+.info strong {
+    color: #4A6B4A;
 }
 
 .maps-btn {
-  display: inline-block;
-  margin: 15px 0;
-  padding: 10px 20px;
-  background: #333;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
+    display: inline-block;
+    margin: 25px 0;
+    padding: 12px 25px;
+    background: #4A6B4A; 
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .maps-btn:hover {
-  background: #555;
+    background: #3A4A3A; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ----------------------------------------------------
-   FORMULARI DE BODA
+    UBICACIÓ ESPECÍFICA
+---------------------------------------------------- */
+.mapa-container {
+    max-width: 700px; 
+    margin: 40px auto;
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.mapa-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; 
+}
+
+/* ----------------------------------------------------
+    FORMULARI DE BODA
 ---------------------------------------------------- */
 
 .titol-formulari {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-  color: #444;
-  letter-spacing: 1px;
+    font-size: 2.5rem; 
+    margin-bottom: 30px;
+    color: #4A6B4A;
+    letter-spacing: 1px;
 }
 
 /* Contenidor */
 .formulari {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 480px;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 550px; 
+    margin: auto;
 }
 
 /* Fieldsets */
 .formulari fieldset {
-  border: 1px solid #ddd;
-  padding: 20px 18px;
-  margin-bottom: 22px;
-  border-radius: 8px;
-  background: #fafafa;
+    border: 1px solid #DCE6D9; 
+    padding: 25px 20px; 
+    margin-bottom: 25px;
+    border-radius: 10px; 
+    background: #FDFDFD; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); 
 }
 
 .formulari legend {
-  padding: 0 8px;
-  font-size: 1.1rem;
-  color: #666;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+    padding: 0 10px;
+    font-size: 1.2rem; 
+    color: #4A6B4A; 
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
 }
 
 /* Labels */
 .formulari label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-  color: #555;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #6D7E6D; 
+    text-align: left; 
 }
 
 /* Inputs, selects, textareas */
 .formulari input,
 .formulari textarea,
 .formulari select {
-  margin-bottom: 15px;
-  padding: 12px;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  background: #fff;
-  font-size: 1rem;
-  transition: 0.3s;
-  width: 80%;
+    margin-bottom: 20px; 
+    padding: 14px; 
+    border: 1px solid #C8D6C8; 
+    border-radius: 8px; 
+    background: #fff;
+    font-size: 1rem;
+    color: #5C6F5C; 
+    transition: all 0.3s ease;
+    width: 100%; 
 }
 
 /* Focus bonic */
 .formulari input:focus,
 .formulari textarea:focus,
 .formulari select:focus {
-  border-color: #c78fb0;
-  box-shadow: 0 0 5px #e7c6dc;
-  outline: none;
+    border-color: #7A8D7A; 
+    box-shadow: 0 0 8px rgba(122, 141, 122, 0.3); 
+    outline: none;
 }
 
 /* Textarea */
 .formulari textarea {
-  min-height: 90px;
-  resize: vertical;
+    min-height: 120px; 
+    resize: vertical;
 }
 
 /* Botó enviar */
 .boto-enviar {
-  padding: 14px;
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: 0.3s;
+    padding: 15px;
+    background: #4A6B4A; 
+    color: #fff;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .boto-enviar:hover {
-  background: #555;
+    background: #3A4A3A; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ----------------------------------------------------
-   RESPONSIVE
----------------------------------------------------- */
-@media (min-width: 800px) {
-  .main-title {
-    font-size: 5rem;
-  }
 
-  .sub-title {
-    font-size: 2.5rem;
-  }
+/* ----------------------------------------------------
+    RESPONSIVE
+---------------------------------------------------- */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3.5rem;
+    }
+    .sub-title {
+        font-size: 1.2rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+        margin: 10px auto 30px auto;
+    }
+    .info h2,
+    .ubicacio h2,
+    .registre h2 {
+        font-size: 2rem;
+    }
+    .info p,
+    .ubicacio p {
+        font-size: 1rem;
+    }
+    .top-nav {
+        flex-wrap: wrap; 
+        justify-content: center;
+        padding: 10px;
+        gap: 8px;
+    }
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+    .formulari fieldset {
+        padding: 20px 15px;
+    }
+    .formulari legend {
+        font-size: 1rem;
+    }
+    .formulari input,
+    .formulari textarea,
+    .formulari select {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .boto-enviar {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+@media (min-width: 800px) {
+    .main-title {
+        font-size: 6rem; 
+    }
+
+    .sub-title {
+        font-size: 2rem;
+    }
 }

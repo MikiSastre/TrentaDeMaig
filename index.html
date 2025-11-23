@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Núria & Pol - 30/05/2026</title>
+    <!-- Importación de las fuentes para el nuevo diseño -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Iframe oculto para el envío del formulario a Google Sheets -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {document.getElementById('formulariBoda').reset();}"></iframe>
 </head>
 <body>
 
-    <!-- NAV SUPERIOR -->
+    <!-- NAV SUPERIOR - Fijo y centrado -->
     <header class="top-nav">
         <div class="nav-left">
             <button class="nav-btn" onclick="scrollToSection('info')">Informació</button>
@@ -17,27 +25,54 @@
         </div>
     </header>
 
-    <!-- PORTADA -->
+    <!-- PORTADA - Sección Hero con el estilo visual de la imagen -->
     <section class="hero">
-        <h1 class="main-title">Núria & Pol</h1>
-        <h2 class="sub-title">30 • 05 • 2026</h2>
-        <button class="leer-mas" onclick="scrollToSection('info')">Saber més</button>
+        <div class="hero-content">
+            <h1 class="main-title">Núria & Pol</h1>
+            
+            <!-- Contenedor para la fecha en formato pequeño -->
+            <div class="date-box">
+                <h2 class="sub-title">30 • 05 • 2026</h2>
+            </div>
+
+            <p>Ens encantaria que ens acompanyéssiu en el dia més especial de les nostres vides.</p>
+            
+            <button class="leer-mas" onclick="scrollToSection('info')">Saber més</button>
+        </div>
     </section>
 
-    <!-- INFORMACIÓ -->
+    <!-- INFORMACIÓ - Detalles del evento -->
     <section id="info" class="info">
-        <h2>Ens encantaria que vinguéssiu 💛</h2>
+        <h2>Detalls de la Celebració</h2>
         <p><strong>Data:</strong> 30 de maig de 2026</p>
         <p><strong>Hora:</strong> 17:00 h</p>
-        <p><strong>Codi vestimenta:</strong> Elegant però còmode</p>
-        <p><strong>Ubicació:</strong> Casa Rural / Masia / Espai (substituir)</p>
-        <a class="maps-btn" href="https://maps.google.com" target="_blank">Obrir a Google Maps</a>
-        <p>Si us plau, ompliu el formulari de sota per confirmar assistència.</p>
+        <p><strong>Codi vestimenta:</strong> Elegant però còmode. Prioritzem la comoditat sense oblidar l'ocasió especial.</p>
+        <p><strong>Observacions:</strong> La cerimònia serà a l'aire lliure, si us plau, tingueu-ho en compte.</p>
     </section>
 
-    <!-- UBICACIÓ -->>
+    <!-- UBICACIÓ - Detalles de dónde se celebra -->
+    <section id="ubicacio" class="ubicacio">
+        <h2>📍 On celebrem el gran dia?</h2>
+        <p>La cerimònia i el convit se celebraran a **[Nom de l'Espai/Masia]** a **[Localitat]**.</p>
+        <p>Disposem d'un ampli pàrquing per a tots els vehicles. Si veniu en transport privat, seguiu les indicacions del mapa.</p>
+        
+        <!-- Mapa incrustado (debe actualizar el 'src' del iframe con la ubicación real) -->
+        <div class="mapa-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d2.1732!3d41.3851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDIzJzMyLjAiTiAywrAxMCc1My41IkU!5e0!3m2!1sca!2ses!4v1678886400000!5m2!1sca!2ses"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
 
-    <!-- FORMULARI -->
+        <a class="maps-btn" href="https://maps.google.com" target="_blank">Obrir adreça a Google Maps</a>
+    </section>
+
+    <!-- FORMULARI - Confirmación de asistencia -->
     <section id="registre" class="registre">
     <h2 class="titol-formulari">Confirmació d'assistència</h2>
 
@@ -46,69 +81,80 @@
         method="POST"
         target="hidden_iframe">
 
-        <!-- Secció assistència -->
+        <!-- Secció assistència (Siempre visible) -->
         <fieldset class="grup" id="fs-assistencia">
-        <legend>Assistència</legend>
-        <label for="assistencia">Confirmeu la vostra assistència?</label>
-        <select name="assistencia" id="assistencia" required>
-            <option value="">Selecciona una opció</option>
-            <option>Si</option>
-            <option>No</option>
-        </select>
+            <legend>Assistència</legend>
+            <label for="assistencia">Confirmeu la vostra assistència?</label>
+            <select name="assistencia" id="assistencia" required>
+                <option value="">Selecciona una opció</option>
+                <option>Si</option>
+                <option>No</option>
+            </select>
         </fieldset>
 
-        <!-- Dades principals -->
+        <!-- Dades personals de l'usuari principal (Sempre visible) -->
         <fieldset class="grup" id="fs-dades">
-        <legend>Dades personals</legend>
-
-        <label for="nom">Nom i cognoms *</label>
-        <input id="nom" name="nom" type="text" placeholder="Escriu el teu nom complet" required>
-
-        <label for="plus1">Nom convidat +1</label>
-        <input id="plus1" name="plus1" type="text" placeholder="Nom del teu acompanyant (si n'hi ha)">
+            <legend>La teva Identificació</legend>
+            <label for="nom">Nom i cognoms *</label>
+            <input id="nom" name="nom" type="text" placeholder="Escriu el teu nom complet">
+        </fieldset>
+        
+        <!-- Convidat (+1) (Sempre visible, ja que poden posar qui són encara que no vinguin) -->
+        <fieldset class="grup" id="fs-plus1">
+            <legend>Acompanyant (+1)</legend>
+            <label for="plus1">Nom i cognoms de l'acompanyant</label>
+            <input id="plus1" name="plus1" type="text" placeholder="Nom del teu acompanyant (si n'hi ha)">
         </fieldset>
 
-        <!-- Al·lèrgies -->
+
+        <!-- Al·lèrgies (Visible solo si "Si") -->
         <fieldset class="grup" id="fs-allergies">
-        <legend>Al·lèrgies o intoleràncies</legend>
+            <legend>Al·lèrgies o intoleràncies</legend>
 
-        <label for="allergies">Al·lèrgies *</label>
-        <input id="allergies" name="allergies" type="text" placeholder="Indica les al·lèrgies i a qui afecten" required>
+            <label for="allergies">Al·lèrgies i intoleràncies *</label>
+            <input id="allergies" name="allergies" type="text" placeholder="Indica les al·lèrgies i a qui afecten" required>
 
-        <label for="comAllergies">Comentaris addicionals</label>
-        <textarea id="comAllergies" name="comAllergies" placeholder="Detalls o aclariments addicionals"></textarea>
+            <label for="comAllergies">Comentaris addicionals (dieta, altres)</label>
+            <textarea id="comAllergies" name="comAllergies" placeholder="Detalls o aclariments addicionals"></textarea>
         </fieldset>
 
-        <!-- Música -->
+        <!-- Música (Visible solo si "Si") -->
         <fieldset class="grup" id="fs-musica">
-        <legend>Música</legend>
-        <label for="musica">Cançons que us agradaria escoltar</label>
-        <input id="musica" name="musica" type="text" placeholder="Digues alguna cançó per a la festa!">
+            <legend>Música</legend>
+            <label for="musica">Cançons que us agradaria escoltar</label>
+            <input id="musica" name="musica" type="text" placeholder="Digues alguna cançó per a la festa!">
         </fieldset>
 
-        <!-- Missatge -->
-        <fieldset class="grup" id="fs-missatge">
-        <legend>Missatge per als nuvis ❤</legend>
-        <label for="missatge">Missatge</label>
-        <textarea id="missatge" name="missatge" placeholder="Deixa’ns un missatge especial"></textarea>
-        </fieldset>
-
-        <!-- Transport -->
+        <!-- Transport (Visible solo si "Si") -->
         <fieldset class="grup" id="fs-transport">
-        <legend>Transport</legend>
-        <label for="transport">Com hi arribareu?</label>
-        <select id="transport" name="transport">
-            <option value="">Selecciona una opció</option>
-            <option>Taxi</option>
-            <option>Vehicle propi</option>
-            <option>Encara no ho sabem</option>
-        </select>
+            <legend>Transport</legend>
+            <label for="transport">Com hi arribareu?</label>
+            <select id="transport" name="transport">
+                <option value="">Selecciona una opció</option>
+                <option>Taxi</option>
+                <option>Vehicle propi</option>
+                <option>Bus/Autocar (si s'ofereix)</option>
+                <option>Encara no ho sabem</option>
+            </select>
+        </fieldset>
+
+        <!-- Missatge (Visible siempre) -->
+        <fieldset class="grup" id="fs-missatge">
+            <legend>Missatge per als nuvis ❤</legend>
+            <label for="missatge">Missatge</label>
+            <textarea id="missatge" name="missatge" placeholder="Deixa’ns un missatge especial, consells o bons desitjos!"></textarea>
         </fieldset>
 
         <button type="submit" class="boto-enviar">Enviar confirmació</button>
     </form>
     </section>
+    
+    <!-- Footer sencillo -->
+    <footer class="text-center py-8 text-sm text-[#7A8D7A]">
+        <p>© Núria & Pol. 30 de maig de 2026</p>
+    </footer>
 
+    <!-- Script de control de scroll y visibilidad del formulario -->
     <script src="js/script.js"></script>
 </body>
 </html>
