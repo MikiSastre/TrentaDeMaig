@@ -10,11 +10,12 @@
 }
 
 body {
-    background: #F8F8F8; /* Un fondo ligeramente más claro */
+    /* CAMBIOS AQUÍ: Aplicamos un fondo con imagen/patrón */
+    background: #d0d5ce; /* Color base y patrón */
+    background-size: 200px; /* Ajusta el tamaño del patrón si es necesario */
     color: #5C6F5C; /* Color de texto base, un verd-gris suau */
     line-height: 1.6;
 }
-
 /* ----------------------------------------------------
     NAVEGACIÓ - SOLUCIÓ RESPONSIVE
 ---------------------------------------------------- */
@@ -72,7 +73,7 @@ body {
 .hero {
     height: 100vh;
     /* NOTA: Aquesta URL s'ha d'ajustar a la vostra imatge. */
-    background: url('../img/vostra_foto.jpg') center/cover no-repeat; 
+    background: url('../img/portada_opcio1.jpeg') center/cover no-repeat; 
     display: flex;
     flex-direction: column;
     justify-content: center;

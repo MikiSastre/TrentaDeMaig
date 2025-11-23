@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Establir l'estat per defecte a "No" al carregar la pàgina
-    selectAssistencia.value = "No"; 
+    selectAssistencia.value = "Si"; 
 
     // Escoltar el canvi en el select
     selectAssistencia.addEventListener("change", updateVisibility);
