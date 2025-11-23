@@ -9,6 +9,7 @@ function scrollToSection(id) {
 // Missatge de confirmació al enviar el formulari (sense usar alert)
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("formulariBoda");
+    const submitButton = form.querySelector('.boto-enviar'); // Obtenim la referència al botó
     
     // Crear un element per mostrar el missatge de confirmació
     const confirmationMessage = document.createElement('div');
@@ -30,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // Assegurem que només es mostri la confirmació després d'un enviament POST reeixit
         if (form.getAttribute('target') === 'hidden_iframe') {
             showConfirmation();
+            
+            // Re-habilitar el botó i restaurar el text
+            submitButton.disabled = false;
+            submitButton.textContent = "Enviar confirmació"; 
+            
             // Restableix l'estat inicial
             form.reset();
             // Assegurar que la visibilitat s'actualitza a l'estat inicial (Si)
@@ -40,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Escolta l'enviament del formulari
     form.addEventListener("submit", function() {
+        // Deshabilitar el botó per evitar el doble clic i donar feedback
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviant...";
         // El iframe.onload gestionarà la confirmació i el reset.
     });
 });
@@ -49,13 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectAssistencia = document.getElementById("assistencia");
 
     // Fieldsets que NOMÉS es mostren si l'assistència és 'Si'
-    // AÑADIDO: fs-plus1 ahora es condicional
     const fieldsetsConditional = [
         "fs-plus1", 
         "fs-allergies",
         "fs-musica",
         "fs-transport"
     ];
+
+    // Inputs que són obligatoris (required) només si l'usuari assisteix
+    const allergiesInput = document.getElementById("allergies");
 
     // Assegurar que el nom sempre és obligatori (per identificació)
     const nomInput = document.getElementById("nom");
@@ -80,11 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
         allergiesInput.required = isAttending;
         
         // 3. Assegurar que els fieldsets bàsics (fs-dades, fs-assistencia, fs-missatge) estan sempre visibles
-        // Nota: fs-plus1 s'ha eliminat d'aquesta llista i es gestiona amb els condicionals.
         document.getElementById("fs-dades").style.display = "block";
         document.getElementById("fs-assistencia").style.display = "block";
         document.getElementById("fs-missatge").style.display = "block";
     }
+
+    // Establir l'estat per defecte a "Si" al carregar la pàgina
+    selectAssistencia.value = "Si"; 
 
     // Escoltar el canvi en el select
     selectAssistencia.addEventListener("change", updateVisibility);
