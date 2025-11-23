@@ -57,9 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "fs-transport"
     ];
 
-    // Inputs que són obligatoris (required) només si l'usuari assisteix
-    const allergiesInput = document.getElementById("allergies");
-
     // Assegurar que el nom sempre és obligatori (per identificació)
     const nomInput = document.getElementById("nom");
     nomInput.required = true;

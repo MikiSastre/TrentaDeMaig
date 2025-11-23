@@ -19,6 +19,7 @@
     <!-- NAV SUPERIOR - Fijo y centrado -->
     <header class="top-nav">
         <div class="nav-left">
+            <button class="nav-btn" onclick="scrollToSection('hero')">Inici</button>
             <button class="nav-btn" onclick="scrollToSection('info')">Informació</button>
             <button class="nav-btn" onclick="scrollToSection('ubicacio')">Ubicació</button>
             <button class="nav-btn" onclick="scrollToSection('registre')">Confirmació</button>
@@ -26,7 +27,7 @@
     </header>
 
     <!-- PORTADA - Sección Hero con el estilo visual de la imagen -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="hero-content">
             <h1 class="main-title">Núria & Pol</h1>
             
@@ -95,7 +96,7 @@
         <fieldset class="grup" id="fs-dades">
             <legend>La teva Identificació</legend>
             <label for="nom">Nom i cognoms *</label>
-            <input id="nom" name="nom" type="text" placeholder="Escriu el teu nom complet">
+            <input id="nom" name="nom" type="text" placeholder="Escriu el teu nom complet" required>
         </fieldset>
         
         <!-- Convidat (+1) (Sempre visible, ja que poden posar qui són encara que no vinguin) -->
@@ -109,7 +110,7 @@
         <fieldset class="grup" id="fs-allergies">
             <legend>Al·lèrgies o intoleràncies</legend>
 
-            <label for="allergies">Al·lèrgies i intoleràncies *</label>
+            <label for="allergies">Al·lèrgies i intoleràncies</label>
             <input id="allergies" name="allergies" type="text" placeholder="Indica les al·lèrgies i a qui afecten">
 
             <label for="comAllergies">Comentaris addicionals (dieta, altres)</label>
