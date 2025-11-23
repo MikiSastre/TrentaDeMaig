@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fieldsets que NOMÉS es mostren si l'assistència és 'Si'
     const fieldsetsConditional = [
-        "fs-plus1", 
         "fs-allergies",
         "fs-musica",
         "fs-transport"

@@ -155,6 +155,19 @@ body {
 }
 
 /* ----------------------------------------------------
+    LOGO ENS CASAM - RESPONSIVE (AÑADIDO)
+---------------------------------------------------- */
+.logo-enscasem {
+    /* Centrar la imagen dentro de la sección */
+    display: block; 
+    margin: 0px auto 40px auto; /* Separación superior 0, inferior 40px */
+    
+    /* CONTROL DE TAMAÑO EN ESCRITORIO */
+    max-width: 650px; /* Tamaño máximo para escritorio */
+    height: auto;
+}
+
+/* ----------------------------------------------------
     SECCIONS GENERALS (INFORMACIÓ, UBICACIÓ, REGISTRE)
 ---------------------------------------------------- */
 .info,
@@ -163,7 +176,7 @@ body {
     padding: 80px 25px; 
     text-align: center;
     max-width: 900px; 
-    margin: 0 auto 40px auto; /* Centrar i espaiat */
+    margin: 0 auto 40px auto; /* Centrar y espaciado */
     background: #FFFFFF; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
     border-radius: 10px; 
@@ -374,6 +387,13 @@ body {
         flex-grow: 1; 
         flex-basis: auto; 
         min-width: 23%; /* 4 botons amb espaiat de 8px caben en 100% */
+    }
+    /* Logo de Ens Casem más pequeño */
+    .logo-enscasem {
+        /* Reducimos el tamaño máximo para que no sea demasiado grande en móvil */
+        max-width: 90%; 
+        /* Reducimos la separación inferior para compactar el contenido */
+        margin-bottom: 25px; 
     }
     /* Resto de estilos responsive */
     .main-title {
