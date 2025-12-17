@@ -154,39 +154,27 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Ajustem el contenidor per donar més espai superior */
 .hero-content {
     position: relative;
     z-index: 2;
     max-width: 90%;
-    /* Pugem el padding superior perquè el contingut baixi una mica */
+    /* Espacio superior para que el contenido baje respecto al menú */
     padding-top: 60px; 
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); 
+    margin: 0 auto;
+    text-align: center;
 }
 
-/* Fem la imatge del títol més gran i li donem aire */
 .titol-imatge {
+    /* Uso de porcentajes para adaptabilidad */
     width: 100%;
-    /* Augmentem el màxim per fer-la més gran que abans */
+    /* Tamaño máximo en pantallas grandes para que no píxele */
     max-width: 650px; 
-    height: auto;
-    /* Margin superior per baixar-la respecte al nav */
+    height: auto; /* Mantiene la proporción */
     margin-top: 20px;
     margin-bottom: 10px;
-    /* Mantenim el shadow per si el fons és clar */
+    /* Efecto de sombra para dar profundidad */
     filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
-}
-
-/* Ajust per a mòbils: que es vegi realment gran */
-@media (max-width: 768px) {
-    .titol-imatge {
-        max-width: 100%; /* En mòbil que ocupi tota l'amplada possible */
-        margin-top: 40px; /* Més espai respecte al menú mòbil */
-    }
-    
-    .hero-content {
-        padding-top: 80px;
-    }
 }
 
 /* ----------------------------------------------------
@@ -242,24 +230,15 @@ body {
 }
 
 .img-masia {
+    /* Se adapta al 100% del contenedor del móvil */
     width: 100%;
-    max-width: 500px; /* Mida ideal per a escriptori */
-    height: auto;
-    border-radius: 15px; /* Bordes arrodonits com la resta del disseny */
-    margin-bottom: 30px; /* Espai abans del text */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Ombra suau */
-    border: 8px solid #fff; /* Efecte de marc de fotografia */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Ajust per a mòbils */
-@media (max-width: 768px) {
-    .img-masia {
-        max-width: 90%; /* Ocupa gairebé tota l'amplada en pantalles petites */
-        border: 5px solid #fff; /* Marc una mica més fi */
-    }
+    /* En ordenadores, limitamos el tamaño para que sea elegante */
+    max-width: 800px; 
+    height: auto; /* Evita que la imagen se vea "aplastada" */
+    border-radius: 15px; /* Bordes redondeados */
+    margin: 30px auto;
+    display: block; /* Asegura que el centrado con margin: auto funcione */
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
 }
 
 .info p,
@@ -604,5 +583,24 @@ body {
 
     .sub-title {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* El título en móvil debe resaltar */
+    .titol-imatge {
+        max-width: 100%; 
+        margin-top: 40px; 
+    }
+    
+    .hero-content {
+        padding-top: 80px;
+    }
+
+    /* La masía en móviles puede ocupar toda la anchura para mejor detalle */
+    .img-masia {
+        width: 100%;
+        border-radius: 8px; /* Reducimos un poco el radio en pantallas pequeñas */
+        margin: 20px auto;
     }
 }
