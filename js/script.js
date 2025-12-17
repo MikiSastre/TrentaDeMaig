@@ -136,3 +136,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Executar al carregar la pàgina per establir l'estat inicial correcte
     updateVisibility();
 });
+
+function copyIBAN() {
+    const iban = document.getElementById('ibanText').innerText;
+    navigator.clipboard.writeText(iban).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.innerText = 'Copiat!';
+        setTimeout(() => {
+            btn.innerText = 'Copiar';
+        }, 2000);
+    });
+}

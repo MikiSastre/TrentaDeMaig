@@ -154,6 +154,41 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Ajustem el contenidor per donar més espai superior */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
+    /* Pugem el padding superior perquè el contingut baixi una mica */
+    padding-top: 60px; 
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); 
+}
+
+/* Fem la imatge del títol més gran i li donem aire */
+.titol-imatge {
+    width: 100%;
+    /* Augmentem el màxim per fer-la més gran que abans */
+    max-width: 650px; 
+    height: auto;
+    /* Margin superior per baixar-la respecte al nav */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Mantenim el shadow per si el fons és clar */
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* Ajust per a mòbils: que es vegi realment gran */
+@media (max-width: 768px) {
+    .titol-imatge {
+        max-width: 100%; /* En mòbil que ocupi tota l'amplada possible */
+        margin-top: 40px; /* Més espai respecte al menú mòbil */
+    }
+    
+    .hero-content {
+        padding-top: 80px;
+    }
+}
+
 /* ----------------------------------------------------
     LOGO ENS CASAM - RESPONSIVE (AÑADIDO)
 ---------------------------------------------------- */
@@ -206,6 +241,26 @@ body {
     background-color: #C8D6C8; 
 }
 
+.img-masia {
+    width: 100%;
+    max-width: 500px; /* Mida ideal per a escriptori */
+    height: auto;
+    border-radius: 15px; /* Bordes arrodonits com la resta del disseny */
+    margin-bottom: 30px; /* Espai abans del text */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Ombra suau */
+    border: 8px solid #fff; /* Efecte de marc de fotografia */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ajust per a mòbils */
+@media (max-width: 768px) {
+    .img-masia {
+        max-width: 90%; /* Ocupa gairebé tota l'amplada en pantalles petites */
+        border: 5px solid #fff; /* Marc una mica més fi */
+    }
+}
 
 .info p,
 .ubicacio p {
@@ -263,14 +318,87 @@ body {
 }
 
 /* ----------------------------------------------------
+    REGAL
+---------------------------------------------------- */
+
+.regal {
+    padding: 60px 25px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.regal-contingut p {
+    font-size: 1.1rem;
+    color: #6D7E6D;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+}
+
+.iban-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #F9F7F2;
+    padding: 15px 25px;
+    border: 1px dashed #7A8D7A;
+    border-radius: 8px;
+    font-family: monospace; /* Font de codi per facilitar la lectura dels números */
+    font-size: 1.1rem;
+    color: #4A6B4A;
+}
+
+.copy-btn {
+    background: #7A8D7A;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    transition: background 0.3s;
+}
+
+.copy-btn:hover {
+    background: #5C6F5C;
+}
+
+/* ----------------------------------------------------
     FORMULARI DE BODA
 ---------------------------------------------------- */
 
+/* Estil per al text principal per assegurar que el span es posi a sota */
 .titol-formulari {
-    font-size: 2.5rem; 
-    margin-bottom: 30px;
-    color: #4A6B4A;
-    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+/* Estil específic per al text entre parèntesis */
+.subtitol-formulari {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: #6D7E6D;
+    margin-top: 5px;
+    font-family: 'Playfair Display', serif;
+    text-transform: none;
+}
+
+.data-limit {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #8A9A8A;
+    margin-top: 4px;
+    text-transform: none;
 }
 
 /* Contenidor */
@@ -361,6 +489,42 @@ body {
     background: #3A4A3A; 
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.info-autocar {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f4f7f4; /* Un verd molt clar per diferenciar-ho */
+    border-left: 3px solid #7A8D7A; /* Una línia vertical decorativa */
+    border-radius: 5px;
+    text-align: left;
+}
+
+.info-autocar p {
+    font-size: 0.95rem;
+    margin-bottom: 8px !important;
+    color: #4A6B4A;
+}
+
+.info-autocar ul {
+    list-style: none; /* Treiem els punts per un estil més net */
+    padding-left: 0;
+}
+
+.info-autocar li {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #6D7E6D;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.info-autocar li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #7A8D7A;
 }
 
 
