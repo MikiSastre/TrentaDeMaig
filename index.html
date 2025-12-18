@@ -47,8 +47,9 @@
 
         <h2>Detalls de la Celebració</h2>
         <p><strong>Data:</strong> Dissabte 30 de maig de 2026</p>
-        <p><strong>Hora:</strong> a les 17:00 h</p>
-        <p><strong>Codi vestimenta:</strong> Una miqueta d'elegància, perquè el moment s'ho mereix... i vosaltres també.</p>
+        <p><strong>Benvinguda:</strong> 17:00 h</p>
+        <p><strong>Inici cerimònia:</strong> 17:30 h</p>
+        <p><strong>Codi vestimenta:</strong> Celebrem l'amor amb elegància!</p>
     </section>
 
     <!-- UBICACIÓ - Detalles de dónde se celebra -->
@@ -57,7 +58,7 @@
     
         <img src="img/casa.jpeg" alt="Mirador de les Caves" class="img-masia">
 
-        <p>La cerimònia i el convit se celebraran a <strong>Mirador de les Caves</strong>.</p>
+        <p>El lloc que hem escollit és <strong>El Mirador de les Caves</strong> un indret entre vinyes de l’Alt Penedès, enfilat a l’Ordal i amb unes vistes a Montserrat que ens va enamorar..</p>
         <p>Ctra. d'Ordal a Sant Sadurní Km. 3.800</p>
         <p>08739, Els Casots, Barcelona</p>
         
@@ -84,9 +85,11 @@
             <p>Que hi sigueu en aquest dia tan especial ja és un regal. Si ens voleu acompanyar també amb un detall, us deixem el número de compte (IBAN) a continuació:</p>
             
             <div class="iban-box">
-                <span id="ibanText">ESXX XXXX XXXX XXXX XXXX XXXX</span>
+                <span id="ibanText">ES75 0081 0079 7600 0161 5866</span>
                 <button class="copy-btn" onclick="copyIBAN()">Copiar</button>
             </div>
+            <br><br>
+            <p>O altres mètodes com efectiu o bizum a un dels dos, si ho preferiu.</p>
         </div>
     </section>
 
@@ -94,7 +97,7 @@
     <section id="registre" class="registre">
     <h2 class="titol-formulari">
         Confirmació d'assistència 
-        <span class="subtitol-formulari">(un per convidat)</span>
+        <span class="subtitol-formulari">(un per persona)</span>
         <span class="data-limit">abans del 31 de març de 2026</span>
     </h2>
 
@@ -131,13 +134,6 @@
             <textarea id="comAllergies" name="comAllergies" placeholder="Detalls o aclariments addicionals"></textarea>
         </fieldset>
 
-        <!-- Música (Visible solo si "Si") -->
-        <fieldset class="grup" id="fs-musica">
-            <legend>Música</legend>
-            <label for="musica">Cançons que us agradaria escoltar</label>
-            <input id="musica" name="musica" type="text" placeholder="Digues alguna cançó per a la festa!">
-        </fieldset>
-
         <!-- Transport (Visible solo si "Si") -->
         <fieldset class="grup" id="fs-transport">
             <legend>Transport</legend>
@@ -155,6 +151,13 @@
                     <li>En cas de no arribar al mínim necessari, us avisaríem amb antelació si finalment no es pot oferir el servei.</li>
                 </ul>
             </div>
+        </fieldset>
+
+        <!-- Música (Visible solo si "Si") -->
+        <fieldset class="grup" id="fs-musica">
+            <legend>Música</legend>
+            <label for="musica">Una cançó que no hi pot faltar</label>
+            <input id="musica" name="musica" type="text" placeholder="Digues una cançó per a la festa!">
         </fieldset>
 
         <!-- Missatge (Visible siempre) -->
