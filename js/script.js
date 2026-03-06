@@ -23,7 +23,7 @@ function copyIBAN() {
 
 document.addEventListener("DOMContentLoaded", function() {
     // URL del teu Google Apps Script treta de l'atribut 'action' del teu form
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmIValML51vCdBLvsM-SykvI437OxHjE9tYFup0hs9sGxljipjAbNy6WpvccQx4IOYqw/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWhxcB-BtLwSs6sJDJPlbaUFt44TZWmpsDxhiufV9Tkk3pvNRovsukmi8TTFfqZC0xwg/exec";
 
     const form = document.getElementById("formulariBoda");
     const submitButton = form.querySelector('.boto-enviar');
